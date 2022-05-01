@@ -1,13 +1,16 @@
 #include <iostream>	// для оператора cout
 #include <cctype>   // для функции isdigit
-#include <stdlib.h> // для функции atoi
 #include "windows.h"// для функции Sleep()
 #include <vector>	// для структуры node
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h> // для функции atoi
+#include <stdio.h>
 
 //Выравнивание потока
-void stream_equalization(int originalNumber, char * str)
+void stream_equalization(int originalNumber/*, char * str*/)
 {
-	int atoi(*str);
+	//int atoi(*str);
 	int amountOf0 = 0;
 	int copyOriginalNumber = originalNumber;
 	//Перевод из десятичной
@@ -75,6 +78,15 @@ void stream_equalization(int originalNumber, char * str)
 
 int main()
 {
+	char s[] = "2, 38.5, 70, 0, 0, 1", *p = s;
+	double m[10];
+	int i = 0;
+	do {
+		m[i++] = atof(p);
+		if (i > 9)break;
+	} while (p = strchr(p, ','), p++);
+	for (int k = 0; k < i; k++)
+		printf("%5.2f ", m[k]);
 	setlocale(LC_ALL, "Russian");
 	int acceptedNumber = 0;
 	std::cin >> acceptedNumber;
